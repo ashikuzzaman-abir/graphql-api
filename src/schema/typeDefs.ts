@@ -63,11 +63,12 @@ export const typeDefs = gql`
     key: String
   }
 
+
   type NodeObject {
-    _id: ID!
-    createdAt: Long!
+    _id: ID
+    createdAt: Long
     updatedAt: Long
-    name: String!
+    name: String
     description: String
     parents: [NodeObject]
     parentIds: [ID]
@@ -86,6 +87,7 @@ export const typeDefs = gql`
 
   type Query {
     node(nodeId: ID): NodeObject
+    nodes: [NodeObject]
     nodesByCompositeId(compositeId: String!): [NodeObject]
     actions: [Action]
     responses: [Response]

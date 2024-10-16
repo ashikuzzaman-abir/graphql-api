@@ -29,6 +29,14 @@ export const resolvers: IResolvers = {
     nodesByCompositeId: (_, { compositeId }) => {
       return nodes.filter((node) => node.compositeId === compositeId);
     },
+    parentNodesByCompositeId: (_, { compositeId }) => {
+      const targetNode = nodes.find((node) => node.compositeId === compositeId);
+      if (!targetNode || !targetNode.parents) return [];
+
+      return targetNode.parents
+        .map((parentId) => nodes.find((node) => node._id === parentId))
+        .filter(Boolean); // Filter out any null values
+    },
     actions: () => actions,
     responses: () => responses,
   },

@@ -2,11 +2,11 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import helmet from 'helmet';
-
 import { graphqlHTTP } from 'express-graphql';
 import { makeExecutableSchema } from '@graphql-tools/schema';
 import { typeDefs } from './schema/typeDefs';
 import { resolvers } from './schema/resolvers';
+
 import authValidator from './middlewares/authValidator';
 
 dotenv.config();
@@ -18,20 +18,20 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
 app.use(
   helmet({
     contentSecurityPolicy: {
       directives: {
         defaultSrc: ["'self'"],
         scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'"], // Allow inline scripts
-        // You can also add other directives as needed
       },
     },
   })
 );
 
 app.get('/', (req, res) => {
-  res.json({ message: 'Welcome to the server' });
+  res.json({ message: 'GraphQL Server' });
 });
 
 const schema = makeExecutableSchema({

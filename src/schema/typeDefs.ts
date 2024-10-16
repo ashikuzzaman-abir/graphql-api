@@ -89,5 +89,6 @@ export const typeDefs = gql`
     nodesByCompositeId(compositeId: String!): [NodeObject]
     actions: [Action]
     responses: [Response]
+    parentNodesByCompositeId(compositeId: String!): [NodeObject]
   }
 `;

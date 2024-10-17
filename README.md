@@ -17,7 +17,7 @@ This is a GraphQL API built with Express.js and TypeScript, which provides vario
 * [Installation](#installation)
 * [Running the Project](#running-the-project)
 * [Testing with GraphiQL](#testing-with-graphiql)
-* [GraphQL Queries](#graphql-queries)
+* [GraphQL Queries](#nodes-by-id-query)
 * [Project Explanation](#project-explanation))
 * [Outcome and Results](#outcome-and-results)
 
@@ -94,6 +94,8 @@ The project comes with **GraphiQL** enabled, an in-browser IDE for interacting w
 2. Open your browser and navigate to `http://localhost:5000/graphql`.
 3. In the GraphiQL interface, you can test your queries and mutations. Here's an example:
 
+### Nodes By Id Query
+
 ```
 {
 node(nodeId: "6297005470a0c10d6b89ccf1"){
@@ -130,9 +132,7 @@ node(nodeId: "6297005470a0c10d6b89ccf1"){
 }
 ```
 
-## GraphQL Queries
-
-### Sample Query
+### Parent Nodes By CompositeId Queries
 
 ```
 {
@@ -147,7 +147,7 @@ node(nodeId: "6297005470a0c10d6b89ccf1"){
 }
 ```
 
-### Sample Query
+### Nodes By CompositeId Query
 
 ```
 {

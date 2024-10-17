@@ -4,10 +4,13 @@
   "description": "",
   "main": "dist/app.js",
   "scripts": {
+    "lint": "eslint . - ext .ts",
     "start": "tsc && node dist/app.js",
+    "build": "tsc ",
     "dev": "nodemon - exec 'ts-node' src/app.ts",
-    "dev:token": "nodemon - exec 'ts-node' src/app.ts --withauth",
-    "lint": "eslint . - ext .ts"
+    "dev:auth": "nodemon - exec 'ts-node' src/app.ts --withauth",
+    "start:auth": "tsc && node dist/app.js --withauth",
+    "gen:auth": "ts-node src/scripts/generateAuthToken.ts"
   },
   "keywords": [],
   "author": "Ashikuzzaman Abir",

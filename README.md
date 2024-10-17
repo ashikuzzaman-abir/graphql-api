@@ -18,8 +18,7 @@ This is a GraphQL API built with Express.js and TypeScript, which provides vario
 * [Running the Project](#running-the-project)
 * [Testing with GraphiQL](#testing-with-graphiql)
 * [GraphQL Queries](#graphql-queries)
-* [Project Explanation](#project-explanation)
-* [Improvements](#improvements)
+* [Project Explanation](#project-explanation))
 * [Outcome and Results](#outcome-and-results)
 
 ## Installation

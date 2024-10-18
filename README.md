@@ -1,10 +1,10 @@
 Author: [@Ashikuzzaman Abir](https://github.com/ashikuzzaman-abir)  |   October, 2024
 
-# GraphQL API
+# ExpressJS GraphQL API
 
 ## Overview
 
-This is a GraphQL API built with Express.js and TypeScript, which provides various data such as actions, triggers, and resource templates. The project is scaffolded using a TypeScript setup, and it includes GraphQL resolvers, type definitions, and basic middleware for authentication.
+This is a GraphQL API built with Express.js and TypeScript, which provides various JSON data such as actions, triggers, and resource templates. The project is scaffolded using a TypeScript setup, and it includes GraphQL resolvers, type definitions, and basic middleware for authentication.
 
 ## Features
 

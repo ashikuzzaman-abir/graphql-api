@@ -3,7 +3,7 @@ const authValidator = (req, res, next) => {
   const token = process.env.AUTH_TOKEN
     ? process.env.AUTH_TOKEN
     : req.headers['authorization']?.split(' ')[1];
-  console.log(token);
+    
   if (!token) {
     return res.status(401).json({
       status: 401,

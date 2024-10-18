@@ -94,6 +94,27 @@ The project comes with **GraphiQL** enabled, an in-browser IDE for interacting w
 2. Open your browser and navigate to `http://localhost:5000/graphql`.
 3. In the GraphiQL interface, you can test your queries and mutations. Here's an example:
 
+### All Nodes Query
+
+```
+{
+  nodes{
+    _id
+    parents{
+      _id
+      name
+    }
+    compositeId
+    actions{
+      name
+    }
+    trigger{
+      name
+    }
+  }
+}
+```
+
 ### Nodes By Id Query
 
 ```
@@ -113,25 +134,7 @@ node(nodeId: "6297005470a0c10d6b89ccf1"){
   }
   colour
 }}
-
-{
-  nodes{
-    _id
-    parents{
-      _id
-      name
-    }
-    compositeId
-    actions{
-      name
-    }
-    trigger{
-      name
-    }
-  }
-}
 ```
-
 ### Parent Nodes By CompositeId Queries
 
 ```

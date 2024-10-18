@@ -29,6 +29,7 @@ const mapNode = (node: any) => ({
   responses: node.responses ? findResponses(node.responses) : [],
   parents:
     node.parents && node.parents.length > 0 ? findParents(node.parents) : [],
+  parentIds: node.parents || []
 });
 
 export const resolvers: IResolvers = {
@@ -36,19 +37,66 @@ export const resolvers: IResolvers = {
   JSON: GraphQLJSON,
   Query: {
     node: (_, { nodeId }) => {
-      const node = nodes.find((node) => node._id === nodeId);
-      return node ? mapNode(node) : null;
+      try {
+        const node = nodes.find((node) => node._id === nodeId);
+        return node ? mapNode(node) : null;
+      } catch (error) {
+        console.error(`Error fetching node with ID ${nodeId}:`, error);
+        throw new Error('Failed to fetch node');
+      }
     },
-    nodes: () => nodes.map(mapNode),
-    nodesByCompositeId: (_, { compositeId }) =>
-      nodes.filter((node) => node.compositeId === compositeId).map(mapNode),
+    nodes: () => {
+      try {
+        return nodes.map(mapNode);
+      } catch (error) {
+        console.error('Error fetching nodes:', error);
+        throw new Error('Failed to fetch nodes');
+      }
+    },
+    nodesByCompositeId: (_, { compositeId }) => {
+      try {
+        return nodes
+          .filter((node) => node.compositeId === compositeId)
+          .map(mapNode);
+      } catch (error) {
+        console.error(
+          `Error fetching nodes with composite ID ${compositeId}:`,
+          error
+        );
+        throw new Error('Failed to fetch nodes by composite ID');
+      }
+    },
     parentNodesByCompositeId: (_, { compositeId }) => {
-      const targetNode = nodes.find((node) => node.compositeId === compositeId);
-      return targetNode && targetNode.parents
-        ? findParents(targetNode.parents).map(mapNode)
-        : [];
+      try {
+        const targetNode = nodes.find(
+          (node) => node.compositeId === compositeId
+        );
+        return targetNode && targetNode.parents
+          ? findParents(targetNode.parents).map(mapNode)
+          : [];
+      } catch (error) {
+        console.error(
+          `Error fetching parent nodes with composite ID ${compositeId}:`,
+          error
+        );
+        throw new Error('Failed to fetch parent nodes by composite ID');
+      }
     },
-    actions: () => actions,
-    responses: () => responses,
+    actions: () => {
+      try {
+        return actions;
+      } catch (error) {
+        console.error('Error fetching actions:', error);
+        throw new Error('Failed to fetch actions');
+      }
+    },
+    responses: () => {
+      try {
+        return responses;
+      } catch (error) {
+        console.error('Error fetching responses:', error);
+        throw new Error('Failed to fetch responses');
+      }
+    },
   },
 };

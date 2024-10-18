@@ -14,7 +14,7 @@
   },
   "keywords": [],
   "author": "Ashikuzzaman Abir",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@types/express": "^4.17.21",
     "@types/graphql": "^14.2.3",

@@ -65,10 +65,10 @@ export const typeDefs = gql`
 
 
   type NodeObject {
-    _id: ID
-    createdAt: Long
+    _id: ID!
+    createdAt: Long!
     updatedAt: Long
-    name: String
+    name: String!
     description: String
     parents: [NodeObject]
     parentIds: [ID]

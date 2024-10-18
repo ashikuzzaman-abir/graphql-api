@@ -17,7 +17,7 @@ This is a GraphQL API built with Express.js and TypeScript, which provides vario
 * [Installation](#installation)
 * [Running the Project](#running-the-project)
 * [Testing with GraphiQL](#testing-with-graphiql)
-* [GraphQL Queries](#nodes-by-id-query)
+* [GraphQL Queries](#all-nodes-query)
 * [Project Explanation](#project-explanation)
 * [Outcome and Results](#outcome-and-results)
 
@@ -26,17 +26,17 @@ This is a GraphQL API built with Express.js and TypeScript, which provides vario
 To get started with the project, ensure you have **Node.js** and **npm** installed.
 
 1. Clone the repository:
-   
+
    ```bash
    git clone https://github.com/ashikuzzaman-abir/graphql-api.git
    ```
 2. Navigate to the project directory:
-   
+
    ```bash
    cd graphql-api
    ```
 3. Install the necessary dependencies:
-   
+
    ```bash
    npm install
    ```
@@ -47,33 +47,33 @@ To get started with the project, ensure you have **Node.js** and **npm** install
 There are a few npm scripts you can use to manage the project:
 
 * \*Start the server in production*:
-  
+
   ```bash
   npm start
   ```
-  
+
   This will compile the TypeScript code and run the server from the `dist/` folder.
 * ***Start the server in development***:
-  
+
   ```bash
   npm run dev
   ```
-  
+
   This runs the project using `ts-node` with live-reloading via `nodemon`.
 * \***Start with authentication***:
   First generate a token through my script
-  
+
   ```bash
   npm run gen:auth
   ```
-  
+
   Then copy the token and add it in `AUTH_TOKEN` variable in .env file
   Now, start the dev sarver by running
-  
+
   ```bash
   npm run dev:auth
   ```
-  
+
   This variant runs the project with the token validation feature active.
 
 ## Testing with GraphiQL
@@ -81,13 +81,13 @@ There are a few npm scripts you can use to manage the project:
 The project comes with **GraphiQL** enabled, an in-browser IDE for interacting with the GraphQL API.
 
 1. Start the server by running:
-   
+
    ```bash
    npm run dev
    ```
-   
+
    or with authentication,
-   
+
    ```bash
    npm run dev:auth
    ```
@@ -135,6 +135,7 @@ node(nodeId: "6297005470a0c10d6b89ccf1"){
   colour
 }}
 ```
+
 ### Parent Nodes By CompositeId Queries
 
 ```
@@ -195,4 +196,3 @@ By the end of this project:
 * You will have a foundation that can be expanded with real-world data and improved authentication.
 
 ### ⭐ Please Star this repo on [GitHub](https://github.com/). It keeps me motivated to do more projects.
-
